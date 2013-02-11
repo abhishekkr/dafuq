@@ -1,6 +1,6 @@
 # Dafuq
 
-TODO: Write a gem description
+dafuq is here to handle dafuq tasks required now and then, sometimes and often
 
 ## Installation
 
