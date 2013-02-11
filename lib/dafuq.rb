@@ -1,5 +1,7 @@
+# Dafuq
+
 dafuq_all = File.join(File.dirname(File.expand_path __FILE__), '*', '*.rb')
-Dir.glob(dafuq_all).each {|lib| puts lib ; require lib}
+Dir.glob(dafuq_all).each {|lib| require lib}
 
 module Dafuq
 

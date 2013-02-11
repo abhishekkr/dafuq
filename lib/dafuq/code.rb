@@ -2,7 +2,7 @@ module Dafuq
   module Code
 
     # 'remove tailing whitespace'
-    def notail(edit_path, recursive = true)
+    def self.notail(edit_path, recursive = true)
       Dir.glob(File.expand_path(File.join edit_path, '*')).each do |fyl|
         if File.symlink? fyl
           next
