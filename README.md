@@ -18,7 +18,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+DaFuq
+
+    '-notail', '--no-whitespace'  : Dafuq::Code.notail no_whitespace_path, recurse
+    '-no-r', '--no-recurse'       : non-recursive action in directories
+
+    '-v', '--verbose'             : verbose
+
+    log the output to a file
+      -l $PATH_TO_LOG_FILE
+      --log $PATH_TO_LOG_FILE
+
+.....more to come
+
 
 ## Contributing
 

@@ -8,12 +8,15 @@ Gem::Specification.new do |gem|
   gem.version       = Dafuq::VERSION
   gem.authors       = ["AbhishekKr"]
   gem.email         = ["abhikumar163@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{dafuq is here to handle dafuq tasks required now and then, sometimes and often}
+  gem.summary       = %q{dafuq is this, said a lot... will be adding some of the solutions to it over time}
+  gem.homepage      = "https://github.com/abhishekkr/dafuq"
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.executables   = %w( dafuq )
+
+  gem.add_runtime_dependency 'arg0', '>= 0.0.2'
 end
