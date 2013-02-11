@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'arg0'
+require 'dafuq'
+
+if Arg0::Console.switch?(['-h', '--help'])
+  puts <<-DATA
+DaFuq
+
+'-notail', '--no-whitespace'  : Dafuq::Code.notail no_whitespace_path, recurse
+'-no-r', '--no-recurse'       : non-recursive action in directories
+
+'-v', '--verbose'             : verbose
+
+log the output to a file
+  -l $PATH_TO_LOG_FILE
+  --log $PATH_TO_LOG_FILE
+
+.....more to come
+  DATA
+end
+
+Dafuq.is_this
