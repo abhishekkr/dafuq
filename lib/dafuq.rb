@@ -22,5 +22,9 @@ module Dafuq
     Arg0::Console.value_for(['-notail', '--no-whitespace']).each do |no_whitespace_path|
       Dafuq::Code.notail no_whitespace_path, recurse
     end
+
+    Arg0::Console.value_for(['-noswap', '--no-temp-files']).each do |no_temp_path|
+      Dafuq::FileSystem.noswap no_temp_path, recurse
+    end
   end
 end
