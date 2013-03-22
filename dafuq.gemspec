@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.executables   = %w( dafuq )
 
   gem.add_runtime_dependency 'arg0', '>= 0.0.2'
+  gem.add_runtime_dependency 'rake', '>= 10.0.3'
 end
