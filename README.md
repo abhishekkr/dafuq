@@ -23,6 +23,8 @@ DaFuq
     '-notail', '--no-whitespace'  : Dafuq::Code.notail no_whitespace_path, recurse
     '-noswap', '--no-temp-files'  : Dafuq::FileSystem.noswap no_swap_path, recurse
 
+    '-gpull',  '--git-pull'       : Pull all the git repositories present at path, recurse
+
     '-no-r', '--no-recurse'       : non-recursive action in directories
 
     '-v', '--verbose'             : verbose
