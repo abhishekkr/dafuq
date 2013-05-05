@@ -26,5 +26,9 @@ module Dafuq
     Arg0::Console.value_for(['-noswap', '--no-temp-files']).each do |no_temp_path|
       Dafuq::FileSystem.noswap no_temp_path, recurse
     end
+
+    Arg0::Console.value_for(['-gpull', '--git-pull']).each do |repo_base_path|
+      Dafuq::Git.pull repo_base_path, recurse
+    end
   end
 end
