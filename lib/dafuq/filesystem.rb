@@ -6,7 +6,7 @@ module Dafuq
     # 'remove Vi/Vim Backup/Swap *swp/swo/~ files, leftovers temporary'
     def self.noswap(clean_path, recursive = true)
       clean_path = File.expand_path clean_path
-      file_list = FileList["#{clean_path}/#{recursive ? '**/' : ''}*.{swo,swp}"]
+      file_list = FileList["#{clean_path}/#{recursive ? '**/' : ''}.*.{swo,swp}"]
       file_list.each{|file|
         next if File.symlink? file
         begin
