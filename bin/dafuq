@@ -4,15 +4,19 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 require 'arg0'
 require 'dafuq'
 
-if Arg0::Console.switch?(['-h', '--help'])
+if Arg0::Console.switch?(['-h', '--help']) or ARGV.size == 0
   puts <<-DATA
 DaFuq
-v0.0.3
+v#{Dafuq::VERSION}
+______________________________________________________________________________
 
-'-notail', '--no-whitespace'  : Dafuq::Code.notail no_whitespace_path, recurse
-'-noswap', '--no-temp-files'  : Dafuq::FileSystem.noswap no_swap_path, recurse
+'-notail', '--no-whitespace'  : Remove tailing whitespace in files, recurse
 
-'-gpull',  '--git-pull'       : Pull all the git repositories present at path, recurse
+'-noswap', '--no-temp-files'  : Remove all the Swap files in path, recurse
+
+'-gpull',  '--git-pull'       : Pull all git repos. present at path, recurse
+
+______________________________________________________________________________
 
 '-no-r', '--no-recurse'       : non-recursive action in directories
 
@@ -21,9 +25,15 @@ v0.0.3
 log the output to a file
   -l $PATH_TO_LOG_FILE
   --log $PATH_TO_LOG_FILE
+______________________________________________________________________________
 
 .....more to come
   DATA
 end
 
-Dafuq.is_this
+effin_path = ARGV[-1]
+if not ( File.exists?(effin_path) || File.directory?(effin_path) )
+  effin_path = Dir.pwd
+end
+
+Dafuq.is_this effin_path

@@ -14,21 +14,21 @@ module Dafuq
     File.open(@log, 'a+'){|fyl| fyl.puts msg} if File.exists?(@log)
   end
 
-  def self.is_this
+  def self.is_this(effin_path)
     Dafuq.verbose = Arg0::Console.switch?(['-v', '--verbose'])
     Dafuq.log     = Arg0::Console.value_for(['-l', '--log']).join
     recurse       = ! Arg0::Console.switch?(['-no-r', '--no-recurse'])
 
-    Arg0::Console.value_for(['-notail', '--no-whitespace']).each do |no_whitespace_path|
-      Dafuq::Code.notail no_whitespace_path, recurse
+    if Arg0::Console.switch?(['-notail', '--no-whitespace'])
+      Dafuq::Code.notail effin_path, recurse
     end
 
-    Arg0::Console.value_for(['-noswap', '--no-temp-files']).each do |no_temp_path|
-      Dafuq::FileSystem.noswap no_temp_path, recurse
+    if Arg0::Console.switch?(['-noswap', '--no-temp-files'])
+      Dafuq::FileSystem.noswap effin_path, recurse
     end
 
-    Arg0::Console.value_for(['-gpull', '--git-pull']).each do |repo_base_path|
-      Dafuq::Git.pull repo_base_path, recurse
+    if Arg0::Console.switch?(['-gpull', '--git-pull'])
+      Dafuq::Git.pull effin_path, recurse
     end
   end
 end
